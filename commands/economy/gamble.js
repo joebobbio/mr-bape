@@ -1,9 +1,9 @@
 module.exports = {
     name: "gamble",
     aliases: ['bet'],
-    description: 'gamble your stars, 50/50 chance of losing your stars or winning double the amount you bet',
+    description: `It's not an addiction mom!`,
     cooldown: 5,
-    cd: "If you know someone with a gambling addiction, call 1-800-522-4700",
+    cd: `keep your life savings`,
     fan: true,
     async execute(message, args, d) {
         let inv = await d.items.get(message.author.id);
@@ -16,7 +16,7 @@ module.exports = {
                 .setTitle('Busted!')
                 .addField(`You were lookin kinda sus, so you lost your dice, and ${((2 * bet) + owe)} :star:s!`, '_')
                 .setTimestamp()
-                .setFooter('Grape Gambling Club.');
+                .setFooter('Bape GamblinIf you know someone with a gambling addiction, call 1-800-522-4700g Club.');
             d.addMoni(message.author.id, -((2 * bet) + owe))
             message.channel.send(busted);
         }
@@ -26,7 +26,7 @@ module.exports = {
                 .setTitle(message.author.username + `'s gambling table` + '\n___')
                 .addField('Ok, if you roll an even number you win, if you roll an odd number, you lose.', '_')
                 .setTimestamp()
-                .setFooter('Grape Gambling Club.');
+                .setFooter('Bape Gambling Club.');
             message.channel.send(gambleEmbed)
                 .then((msg) => {
                     setTimeout(function () {
@@ -77,13 +77,13 @@ module.exports = {
                     } else if (message.content.toLowerCase() === 'no' || message.content.toLowerCase() === 'n') {
                         message.channel.send('ok then')
                     }
-                    else { message.channel.send('Bruh its yes/no') }
+                    else { message.channel.send('YES. OR. NO.') }
                 })
                 .catch(collected => {
-                    message.channel.send('ig not')
+                    message.channel.send('nevermind')
                 });
         }
         else if (!isNaN(parseInt(args[0])) && parseInt(args[0]) > 1 && parseInt(args[0]) <= userBal) { decideFate(parseInt(args[0])) }
-        else { message.channel.send('Bruh that\'s not a valid number of stars to bet') }
+        else { message.channel.send('Invalid bet amount.') }
     },
 };
