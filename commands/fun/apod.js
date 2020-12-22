@@ -12,7 +12,7 @@ module.exports = {
             .setTitle('NASA Picture of the Day!')
             .setImage(pic.hdurl)
             .setTimestamp()
-            .setFooter('Grape Space and Astronomy');
+            .setFooter('Bape Space and Astronomy');
         message.channel.send(nasa);
     }
 };
