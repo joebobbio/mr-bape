@@ -2,7 +2,7 @@ module.exports = {
     name: '8ball',
     description: 'fortune telling is cool',
     cooldown: 5,
-    cd: "Even a fortune-teller can tell you to chill",
+    cd: "stop",
     execute(message, args, d) {
         let output;
         let val;
@@ -25,7 +25,7 @@ module.exports = {
                 value: val
             })
             .setTimestamp()
-            .setFooter('Grape Fortune-Telling');
+            .setFooter('Bape Fortune-Telling');
         message.channel.send(ballEmbed);
     }
 };
