@@ -1,9 +1,9 @@
 module.exports = {
     name: 'invore',
-    description: 'check your ore inventory',
+    description: 'Check your ore inventory',
     aliases: ['io'],
     cooldown: 3,
-    cd: "Chill, ur ores are ok",
+    cd: "hufdsufhus4eoilefhlldsfcdsiluhl",
     fan: true,
     async execute(message, args, d) {
         let target = message.mentions.members.first();
@@ -15,7 +15,7 @@ module.exports = {
         } else if (target) {
             person = target;
             personName = target.displayName;
-            if (target.user.bot) { return message.channel.send('No bots in da economy! (except me cus im cool)'); }
+            if (target.user.bot) { return message.channel.send('How can a bot mine? It doesn\'t have any arms.'); }
         } else { return message.channel.send('Use a valid mention!'); }
         let inv = await d.items.get(person.id);
         const invEmbed = new d.Discord.MessageEmbed()
@@ -23,8 +23,8 @@ module.exports = {
             .setDescription('Ore Inventory')
             .setTitle(personName + "'s inventory")
             .setTimestamp()
-            .setFooter('Grape Storages Org.');
-        if (!inv.ore || Object.keys(inv.ore).length === 0) { invEmbed.addField('nothing but cobwebs and pebbles m8', '_'); }
+            .setFooter('Bape Storages Org.');
+        if (!inv.ore || Object.keys(inv.ore).length === 0) { invEmbed.addField('You have no ores.', '_'); }
         else {
             for (const key in inv.ore) {
                 if (inv.ore[key] === 0) {
