@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'pause',
-	description: 'pause a song that\'s playing',
+	description: 'Pause the currently playing song.',
 	cooldown: 2,
 	cd: "No need to double check if its paused",
 	execute(message, args, d) {
@@ -13,9 +13,9 @@ module.exports = {
 				.setTitle('Song')
 				.addField(`Paused.`, '_')
 				.setTimestamp()
-				.setFooter('DJ Grape');
+				.setFooter('DJ Bape');
 			return message.channel.send(p);
 		}
-		return message.channel.send("Can't if there\'s no music bruh");
+		return message.channel.send("Nothing is currently playing.");
 	}
 };
