@@ -1,9 +1,9 @@
 module.exports = {
     name: 'dig',
-    description: 'dig to earn stars',
+    description: 'Dig to earn money and ores',
     aliases: ['mine'],
     cooldown: 30,
-    cd: "Mines are gonna go bare if you don't chill",
+    cd: "mass mining bad",
     fan: true,
     async execute(message, args, d) {
         let inv = await d.items.get(message.author.id);
@@ -17,9 +17,9 @@ module.exports = {
             .setColor('#dd2de0')
             .setTitle(message.author.username + `'s mine`)
             .addField('You dug up ' + earn + ' :star:s!', '_')
-            .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+            .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
             .setTimestamp()
-            .setFooter('Grape Mining Guild');
+            .setFooter('Bape Mining Guild');
 
         if (inv) {
             if (!inv.ore) { inv.ore = {}; }
