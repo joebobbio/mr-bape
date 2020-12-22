@@ -1,9 +1,9 @@
 module.exports = {
     name: "hi",
     aliases: ['hello'],
-    description: "have good manners and greet mr grape",
+    description: "hello",
     cooldown: 2,
-    cd: "who says hello that much dang",
+    cd: "goodbye",
     fan: false,
     async execute(message, args, d) {
         const helloArray = [
