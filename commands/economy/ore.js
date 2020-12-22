@@ -1,9 +1,9 @@
 module.exports = {
     name: 'ore',
-    description: 'display ores you can get',
+    description: 'List all ore',
     aliases: ['ores'],
-    cooldown: 2,
-    cd: "I just showed you the gigantic list of ores, chilll",
+    cooldown: 10,
+    cd: "I don't want to get banned for spamming.",
     fan: true,
     execute(message, args, d) {
         const toTitleCase = (thingy) => {
@@ -34,7 +34,7 @@ module.exports = {
                 value: '_'
             })
             .setTimestamp()
-            .setFooter('Grape Mining Corp');
+            .setFooter('Bape Mining Corp');
 
         message.channel.send(ore);
 
