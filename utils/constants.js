@@ -42,7 +42,6 @@ const buyableItems = {
   carrotdetector: 50,
   starmagnet: 100,
   shovel: 100,
-  starmill: 400,
   tieronepick: 500,
   tiertwopick: 650,
   tierthreepick: 750,
@@ -70,7 +69,6 @@ const itemAliases = {
   md: "mangodetector",
   cd: "carrotdetector",
   sm: "starmagnet",
-  sml: "starmill",
   sh: "shovel",
   tonep: "tieronepick",
   ttwop: "tiertwopick",
@@ -142,7 +140,7 @@ const emoji = {
   limeinite: ":question:",
 };
 
-const blacklisted = [];
+const blacklisted = ["689846245115691141"];
 
 module.exports = {
   Discord: Discord,
