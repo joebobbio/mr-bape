@@ -3,7 +3,7 @@ module.exports = {
     description: 'check your inventory',
     aliases: ['inventory'],
     cooldown: 3,
-    cd: "Yo chill ur inventory is fine",
+    cd: `You *just* checked, give me some time.`,
     fan: true,
     async execute(message, args, d, client) {
         let target;
@@ -16,16 +16,16 @@ module.exports = {
         } else if (target) {
             person = target;
             personName = target.displayName;
-            if (target.user.bot) { return message.channel.send('No bots in da economy! (except me cus im cool)'); }
+            if (target.user.bot) { return message.channel.send(`Bots do not possess anything of value.`); }
         } else { return message.channel.send('Use a valid mention!'); }
         let inv = await d.items.get(person.id);
         const invEmbed = new d.Discord.MessageEmbed()
             .setColor('#dd2de0')
-            .setDescription(`To check your ores, do ${d.prefix}io`)
+            .setDescription(`To check your ores, run ${d.prefix}io`)
             .setTitle(personName + "'s inventory")
             .setTimestamp()
-            .setFooter('Grape Storages Org.');
-        if (!inv || Object.keys(inv).length === 0 || inv.ore && Object.keys(inv).length === 1) { invEmbed.addField('nothing but cobwebs and dust m8', '_'); }
+            .setFooter('Bape Storages Org.');
+        if (!inv || Object.keys(inv).length === 0 || inv.ore && Object.keys(inv).length === 1) { invEmbed.addField(`There's nothing here.`, '_'); }
         else {
             for (const key in inv) {
                 if (inv[key] === 0) {
