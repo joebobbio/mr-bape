@@ -529,7 +529,7 @@ module.exports = {
                 .setTitle(message.author.username + `'s slot machine` + '\n___')
                 .addField('Fruitz', fruits)
                 .addField(title, msg)
-                .setFooter('Grape Gambling Club.');
+                .setFooter('Bape Gambling Club.');
             if (edit) {
                 edit.edit(gambleEmbed)
             } else {
