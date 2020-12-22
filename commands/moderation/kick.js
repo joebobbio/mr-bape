@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 module.exports = {
     name: 'kick',
-    description: 'kick ppl',
+    description: 'kick',
     cooldown: 1,
-    cd: "Don't kick ppl too much, didn't ur mom tell you that?",
+    cd: "Put the boot down.",
     execute(message, args, d) {
         let rawTarget = message.mentions.members.first();
         let target = message.guild.member(rawTarget);
@@ -12,24 +12,24 @@ module.exports = {
         if (boolean && myBoolean) {
             if (target) {
                 if (message.author.id === rawTarget.id) {
-                    return message.channel.send('Bruh imagine kicking yourself');
+                    return message.channel.send('You cannot kick yourself.');
                 }
                 if (message.client.user.id === rawTarget.id) {
-                    return message.channel.send('Woah there, im too cool to get the boot')
+                    return message.channel.send('>:(')
                 }
                 try {
                     target.kick();
-                    message.channel.send(":wave: " + target.displayName + " has been kicked, what a noob lol ");
+                    message.channel.send(":wave: " + target.displayName + " just got fucking KICKED ");
                 } catch {
-                    message.channel.send("I don't got permissions (or high enough role) to kick ppl. How about ya give me it?")
+                    message.channel.send("Permission denied.")
                 }
             }
         } else if (!target) {
-            message.channel.send('who you gonna give the boot to? (mention)');
+            message.channel.send('Please mention who you are going to kick.');
         } else if (!boolean) {
-            message.reply("bruh you dont even have permission to kick people, stop trying smh ");
+            message.reply("Permission denied.");
         } else if (!myBoolean) {
-            message.channel.send("I don't have perms to give ppl the boot")
+            message.channel.send("I do not have permissions to **kick** members in this guild.")
         } else {
             message.channel.send("Cannot kick " + target.displayName + " maybe use a valid mention?");
         }
