@@ -1,6 +1,6 @@
 module.exports = {
     name: 'dice',
-    description: 'roll a die',
+    description: 'Roll a dice',
     cooldown: 5,
     cd: "Chill on the dice",
     execute(message, args, d) {
@@ -13,7 +13,7 @@ module.exports = {
                 value: roll
             })
             .setTimestamp()
-            .setFooter('Grape Dice Club');
+            .setFooter('Bape Dice Club');
         message.channel.send(dice);
     }
 };
