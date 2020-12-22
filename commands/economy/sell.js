@@ -1,8 +1,7 @@
 module.exports = {
     name: 'sell',
-    description: 'give items for a price to people',
     cooldown: 5,
-    cd: "Buddy this ain't a bazaar",
+    cd: "are you sure everyone will buy your stuff",
     fan: true,
     async execute(message, args, d) {
         const regex = /\d+/g;
@@ -31,11 +30,11 @@ module.exports = {
                             { name: 'Profit', value: `${profit} :star:s` }
                         )
                         .setTimestamp()
-                        .setFooter('Grape Marketplaces');
+                        .setFooter('Bape Marketplaces');
                     message.channel.send(saleAllTools);
                     await d.items.set(message.author.id, inv);
                 }
-                message.channel.send('Do you really wanna sell ALL of that useful stuff?')
+                message.channel.send('Do you really wanna sell ALL of your stuff?')
                 let filter = m => m.author.id === message.author.id
                 message.channel.awaitMessages(filter, {
                     max: 1,
@@ -47,13 +46,13 @@ module.exports = {
                         if (message.content.toLowerCase() == 'yes' || message.content.toLowerCase() == 'y') {
                             sellTools();
                         } else if (message.content.toLowerCase() == 'no' || message.content.toLowerCase() == 'n') {
-                            message.channel.send('i thought so')
+                            message.channel.send('ok')
                         } else {
-                            message.channel.send('bruh its yes or no')
+                            message.channel.send('YES. OR. NO.')
                         }
                     })
                     .catch(collected => {
-                        message.channel.send('ur slow');
+                        message.channel.send('how long does it take for you to write `y`?');
                     });
             }
             else if (argument.includes('all')) {
@@ -69,14 +68,14 @@ module.exports = {
                         { name: 'Profit', value: `${profit} :star:s` }
                     )
                     .setTimestamp()
-                    .setFooter('Grape Marketplaces');
+                    .setFooter('Bape Marketplaces');
 
                 message.channel.send(saleAll);
             }
             else {
                 if (!inv[item]) { return message.channel.send('You dont\'t have that item!') }
                 if (isNaN(numItems) || numItems < 0) { numItems = 1; }
-                if (numItems === 0) { return message.channel.send('ok boomer'); }
+                if (numItems === 0) { return message.channel.send('Items being sold must be 1 or more!'); }
                 if (numItems > inv[item]) { return message.channel.send(`You don't have that many ${item}(s)`); }
                 inv[item] -= numItems;
                 let profit = (d.sellableItems[item]) * numItems;
@@ -92,7 +91,7 @@ module.exports = {
                         { name: 'Profit', value: `${profit} :star:s` }
                     )
                     .setTimestamp()
-                    .setFooter('Grape Marketplaces');
+                    .setFooter('Bape Marketplaces');
 
                 message.channel.send(sale);
             }
@@ -160,7 +159,7 @@ module.exports = {
                             { name: 'Profit', value: `${profit} :star:s` }
                         )
                         .setTimestamp()
-                        .setFooter('Grape Marketplaces');
+                        .setFooter('Bape Marketplaces');
                     message.channel.send(saleAllOres);
                     await d.items.set(message.author.id, inv);
                 }
@@ -175,18 +174,18 @@ module.exports = {
                         if (message.content.toLowerCase() == 'yes' || message.content.toLowerCase() == 'y') {
                             sellOresAll();
                         } else if (message.content.toLowerCase() == 'no' || message.content.toLowerCase() == 'n') {
-                            message.channel.send('i thought so')
+                            message.channel.send('ok')
                         } else {
-                            message.channel.send('bruh its yes or no')
+                            message.channel.send('YES. OR. NO.')
                         }
                     })
                     .catch(collected => {
-                        message.channel.send('ur slow');
+                        message.channel.send('How long does it take you to type `y`?');
                     });
             }
             else if (argument.includes('all')) {
                 if (argument.includes('refined')) { item = "refined " + oreFromArray }
-                if (!inv.ore[item]) { return message.channel.send('Bruh you don\'t have that ore'); }
+                if (!inv.ore[item]) { return message.channel.send('You don\'t have that ore'); }
                 const soldItem = getOreCost(item, inv.ore[item])
                 d.addMoni(message.author.id, soldItem[1]);
                 delete inv.ore[item];
@@ -198,14 +197,14 @@ module.exports = {
                         { name: 'Profit', value: `${soldItem[1]} :star:s` }
                     )
                     .setTimestamp()
-                    .setFooter('Grape Marketplaces but for ores');
+                    .setFooter('Bape Marketplaces but for ores');
 
                 message.channel.send(sale);
             }
             else {
                 if (argument.includes('refined')) { item = "refined " + oreFromArray; }
                 if (isNaN(numItems) || numItems < 0) { numItems = 1; }
-                if (numItems === 0) { return message.channel.send('ok boomer'); }
+                if (numItems === 0) { return message.channel.send('You must sell one or more item!'); }
                 if (numItems > inv.ore[item]) { return message.channel.send(`You don't have that many ${item}(s)`); }
                 const soldItem = getOreCost(item, numItems);
                 d.addMoni(message.author.id, soldItem[1]);
@@ -221,13 +220,13 @@ module.exports = {
                         { name: 'Profit', value: `${soldItem[1]} :star:s` }
                     )
                     .setTimestamp()
-                    .setFooter('Grape Marketplaces');
+                    .setFooter('Bape Marketplaces');
 
                 message.channel.send(sale);
             }
             await d.items.set(message.author.id, inv);
         }
-        else { return message.channel.send('Bro that\'s not even a valid item, get good'); }
+        else { return message.channel.send('Invalid item.'); }
 
     }
 };
