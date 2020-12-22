@@ -16,7 +16,7 @@ module.exports = {
                 .setTitle('Busted!')
                 .addField(`You were lookin kinda sus, so you lost your dice, and ${((2 * bet) + owe)} :star:s!`, '_')
                 .setTimestamp()
-                .setFooter('Bape GamblinIf you know someone with a gambling addiction, call 1-800-522-4700g Club.');
+                .setFooter('Bape Gambling Club.');
             d.addMoni(message.author.id, -((2 * bet) + owe))
             message.channel.send(busted);
         }
