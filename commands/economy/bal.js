@@ -1,9 +1,9 @@
 module.exports = {
   name: "bal",
   aliases: ["balance", "wallet"],
-  description: "check ur balance",
+  description: "Check your balance",
   cooldown: 1,
-  cd: "Bruh its just ur balance, chill",
+  cd: "You're checking your balace too quickly!",
   fan: true,
   async execute(message, args, d, client) {
     let target;
@@ -21,7 +21,7 @@ module.exports = {
       personName = target.username;
       
       if (target.bot) {
-        message.channel.send("No bots in da economy! (except me cus im cool)");
+        message.channel.send("The bots here have yet to become setient, so I doubt they have any money.");
         return;
       }
     } else {
@@ -41,9 +41,9 @@ module.exports = {
       .setColor("#dd2de0")
       .setTitle(personName + `'s balance`)
       .addField("Balance", displayBal + " :star:s")
-      .setThumbnail("https://i.imgur.com/JXfpgdXh.jpg")
+      .setThumbnail("https://cdn.discordapp.com/emojis/690075870995808326.png")
       .setTimestamp()
-      .setFooter("Grape Bank Inc.");
+      .setFooter("Bape Bank Inc.");
     message.channel.send(balEmbed);
   },
 };
