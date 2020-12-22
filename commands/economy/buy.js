@@ -1,9 +1,9 @@
 module.exports = {
     name: 'buy',
     aliases: ['purchase'],
-    description: 'buy stuff from the shop',
+    description: 'Buy things!',
     cooldown: 2,
-    cd: "Stop buying so much, ur gonna look like a diva",
+    cd: "Slow down, moneybags.",
     fan: true,
     async execute(message, args, d) {
         const notitem = new d.Discord.MessageEmbed()
@@ -11,21 +11,21 @@ module.exports = {
             .setTitle(message.author.username + "'s purchase")
             .addFields({
                 name: 'Purchase Failed',
-                value: 'dude thats not even an item in the shop smh'
+                value: 'Invalid item provided.'
             })
-            .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+            .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
             .setTimestamp()
-            .setFooter('Grape Marketplaces');
+            .setFooter('Bape Marketplaces');
         const broke = new d.Discord.MessageEmbed()
             .setColor('#dd2de0')
             .setTitle(message.author.username + "'s purchase")
             .addFields({
                 name: 'Purchase Failed',
-                value: 'you donut have enough money rip'
+                value: `You don't have enough money.`
             })
-            .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+            .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
             .setTimestamp()
-            .setFooter('Grape Marketplaces');
+            .setFooter('Bape Marketplaces');
         let have = await d.items.get(message.author.id);
         let argument = args.join('').toLowerCase().replace(/,/g,'');
         const regex = /\d+/g;
@@ -57,7 +57,7 @@ module.exports = {
             .setTitle(message.author.username + "'s purchase")
             .addField('Receipt', receipt)
             .setTimestamp()
-            .setFooter('Grape Marketplaces');
+            .setFooter('Bape Marketplaces');
         message.channel.send(buy);
     }
 };
