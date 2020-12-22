@@ -4,16 +4,16 @@ const youtube = require('youtube-sr');
 const ytpl = require('@distube/ytpl');
 module.exports = {
 	name: 'play',
-	description: 'play music, either do play <search> or play <youtube_url>',
+	description: 'Play a track.',
 	aliases: ['p'],
 	cooldown: 2,
-	cd: "Wait a bit, enjoy the tunes!",
+	cd: "Too much music!",
 	async execute(message, args, d) {
 		const { channel } = message.member.voice;
-		if (!channel) return message.channel.send('Get in a voice channel if you wanna play music!');
+		if (!channel) return message.channel.send('You must join a voice channel first!');
 		const permissions = channel.permissionsFor(message.client.user);
-		if (!permissions.has('CONNECT')) return message.channel.send('Bruh I don\'t have perms to connect');
-		if (!permissions.has('SPEAK')) return message.channel.send('Bruh I don\'t have perms to speak');
+		if (!permissions.has('CONNECT')) return message.channel.send('I cannot **connect** to your voice channel!');
+		if (!permissions.has('SPEAK')) return message.channel.send('I cannot **speak** in your voice channel!');
 
 		const ytRegex = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
 		const plRegex = /^.*(list=)([^#\&\?]*).*/gi;
@@ -42,7 +42,7 @@ module.exports = {
 		function announce(song, started, isPlaylist) {
 			let e;
 			if (isPlaylist) { e = 'Playlist added!' }
-			else if (started) { e = 'Groovin to the tunes!' }
+			else if (started) { e = 'Now playing!' }
 			else { e = 'Added to the queue!' }
 			const announceEmbed = new d.Discord.MessageEmbed()
 				.setColor('#dd2de0')
@@ -70,7 +70,7 @@ module.exports = {
 						title: playlist.title.charAt(0).toUpperCase() + playlist.title.slice(1),
 						url: playlist.url,
 						thumbnail: playlist.items[0].thumbnail,
-						duration: 'It\'s a playlist bro'
+						duration: `This is a playlist`
 					}
 					message.channel.send(announce(playlistInfo, false, true));
 					return message.delete();
