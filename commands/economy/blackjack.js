@@ -134,7 +134,7 @@ module.exports = {
                 if (dealer.cards[0].suit == "diamonds") dealerMsg += "♦"
                 if (dealer.cards[0].suit == "spades") dealerMsg += "♠"
                 if (dealer.cards[0].suit == "clubs") dealerMsg += "♣"
-                dealerMsg += " ? ?`](https://top.gg/bot/743833062265323651#/)"
+                dealerMsg += " ? ?`](https://phene.cf)"
             } else {
                 dealerMsg = "";
                 dealer.cards.forEach(function(card) {
@@ -143,7 +143,7 @@ module.exports = {
                     if (card.suit == "diamonds") dealerMsg += "♦"
                     if (card.suit == "spades") dealerMsg += "♠"
                     if (card.suit == "clubs") dealerMsg += "♣"
-                    dealerMsg += "`](https://top.gg/bot/743833062265323651#/) "
+                    dealerMsg += "`](https://phene.cf) "
                 });
                 dealerMsg += " --> " + dealer.score.toString()
             }
@@ -154,7 +154,7 @@ module.exports = {
                 .addField('Your Cards', cardsMsg)
                 .addField('Dealer\'s Cards', dealerMsg)
                 .addField(title, msg)
-                .setFooter('Grape Gambling Club.');
+                .setFooter('Bape Gambling Club.');
 
             message.channel.send(gambleEmbed);
         }
