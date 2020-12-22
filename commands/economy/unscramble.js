@@ -3,7 +3,7 @@ module.exports = {
     aliases: ['unsc'],
     description: "unscramble a word for $$$",
     cooldown: 30,
-    cd: "Don't let it drive you bananas",
+    cd: "Don't let it drive you bananas HAHAHAHAHAHAHAHA",
     fan: true,
     async execute(message, args, d) {
         const fruitArray = [
@@ -25,7 +25,7 @@ module.exports = {
             .setTitle(message.author.username + `'s task`)
             .addField('Unscramble the fruit!', `${scrambledWord}`)
             .setTimestamp()
-            .setFooter('Grape Enterprises');
+            .setFooter('Bape Enterprises');
         message.channel.send(scrambleEmbed);
         let filter = m => m.author.id === message.author.id
         message.channel.awaitMessages(filter, {
@@ -47,15 +47,15 @@ module.exports = {
                         .setTitle(message.author.username + `'s task`)
                         .addField('Unscramble Results', `Yay! You guessed the word correctly! You get ${e} :star:s`)
                         .setTimestamp()
-                        .setFooter('Grape Enterprises');
+                        .setFooter('Bape Enterprises');
                     message.channel.send(yay)
                 } else {
                     const oof = new d.Discord.MessageEmbed()
                         .setColor('#dd2de0')
                         .setTitle(message.author.username + `'s task`)
-                        .addField('Unscramble Results', `bruh ur bad, the word was ${word} duh`)
+                        .addField('Unscramble Results', `Incorrect. The word was ${word}.`)
                         .setTimestamp()
-                        .setFooter('Grape Enterprises');
+                        .setFooter('Bape Enterprises');
                     message.channel.send(oof)
                 }
             })
@@ -63,9 +63,9 @@ module.exports = {
                 const oof = new d.Discord.MessageEmbed()
                     .setColor('#dd2de0')
                     .setTitle(message.author.username + `'s task`)
-                    .addField('Unscramble Results', `cmon slowpoke, its not that hard, it was ${word}`)
+                    .addField('Unscramble Results', `brain thinky for too long, the word was ${word}`)
                     .setTimestamp()
-                    .setFooter('Grape Enterprises');
+                    .setFooter('Bape Enterprises');
                 message.channel.send(oof)
             });
     }
