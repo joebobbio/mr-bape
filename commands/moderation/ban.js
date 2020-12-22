@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
     name: 'ban',
-    description: 'ban ppl',
+    description: 'Swing the banhammer',
     cooldown: 1,
     cd: "Don't bully",
     execute(message, args, d) {
@@ -12,24 +12,24 @@ module.exports = {
         if (boolean && myBoolean) {
             if (target) {
                 if (message.author.id === rawTarget.id) {
-                    return message.channel.send('Bruh imagine banning yourself');
+                    return message.channel.send('Why ban yourself?');
                 }
                 if (message.client.user.id === rawTarget.id) {
-                    return message.channel.send('Woah there, im too cool to ban')
+                    return message.channel.send('>:(')
                 }
                 try {
                     target.ban();
-                    message.channel.send("\:hammer: " + target.displayName + " has been banned, with an iron fist");
+                    message.channel.send("\:hammer: " + target.displayName + " has been fucking BANNED");
                 } catch {
-                    message.channel.send("I don't got permissions (or high enough role) to kick ppl. How about ya give me it?")
+                    message.channel.send("Permission denied.")
                 }
             }
         } else if (!target) {
-            message.channel.send('who you gonna hammer? (mention)');
+            message.channel.send('Mention who you wish to ban.');
         } else if (!boolean) {
-            message.reply("bruh you dont even have permission to kick people, stop trying smh ");
+            message.reply("Permission denied.");
         } else if (!myBoolean) {
-            message.channel.send("I don't have perms to ban")
+            message.channel.send("I cannot **ban** members in this guild.")
         } else {
             message.channel.send("Cannot kick " + target.displayName + " maybe use a valid mention?");
         }
