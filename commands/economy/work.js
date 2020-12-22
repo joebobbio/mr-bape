@@ -3,7 +3,7 @@ module.exports = {
     aliases: ['job'],
     description: 'do honest work to get stars',
     cooldown: 30,
-    cd: "Don't be a workaholic",
+    cd: "Take a day off",
     fan: true,
     async execute(message, args, d) {
         let inv = await d.items.get(message.author.id);
@@ -34,9 +34,9 @@ module.exports = {
         }
 
         const situation = [
-            ['Help Mr.Grape find his orange!', 'will you help me find my orange?\nit fell in a bush full of bananas over there, but i could not find it.\nPlease go there and find my orange.', 'Yay, you found my orange! Here, take ' + earn + ' :star:s!', "That's not my orange, that's a banana! Try again later."],
-            ['Help Mr.Grape catch his mango!', 'I am trying to catch a flying mango, but it keeps disappearing.\nSo will you catch it and bring it to me?', 'Yay, you found my mango! Here, take ' + earn + ' :star:s!', "You didn't catch my mango? Too bad, try again next time"],
-            ['Help Mr.Grape find his rabbit.', 'my pet rabbit has escaped!\nhe really like carrots\ncan you help lure him home?', 'Yay, you found my rabbit! Here, take ' + earn + ' :star:s!', "Sorry, I was asking for a carrot, not a lime."]
+            ['Help Mr. Bape find his orange!', 'will you help me find my orange?\nit fell in a bush full of bananas over there, but i could not find it.\nPlease go there and find my orange.', 'Yay, you found my orange! Here, take ' + earn + ' :star:s!', "That's not my orange, that's a banana! Try again later."],
+            ['Help Mr. Bape catch his mango!', 'I am trying to catch a flying mango, but it keeps disappearing.\nSo will you catch it and bring it to me?', 'Yay, you found my mango! Here, take ' + earn + ' :star:s!', "You didn't catch my mango? Too bad, try again next time"],
+            ['Help Mr. Bape find his rabbit.', 'my pet rabbit has escaped!\nhe really like carrots\ncan you help lure him home?', 'Yay, you found my rabbit! Here, take ' + earn + ' :star:s!', "Sorry, I was asking for a carrot, not a lime."]
         ];
 
         const chosen = situation[chooseWork];
@@ -60,9 +60,9 @@ module.exports = {
                 name: outcome,
                 value: "_"
             })
-            .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+            .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
             .setTimestamp()
-            .setFooter('Grape Enterprises');
+            .setFooter('Bape Enterprises');
 
         message.channel.send(job);
     }
