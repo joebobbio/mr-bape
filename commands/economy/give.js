@@ -1,7 +1,7 @@
 module.exports = {
     name: 'give',
     aliases: ['donate'],
-    description: 'give stars to people',
+    description: 'Give stars to people',
     cooldown: 5,
     cd: "Love the generosity, but maybe chill a bit?",
     fan: true,
@@ -13,15 +13,15 @@ module.exports = {
         if(args[0]) target = message.mentions.members.first() || await message.guild.members.fetch(await client.users.fetch(args[0]));
         let check = await d.users.get(message.author.id)
         if (!target) {
-            message.channel.send("who u givin golden stars to");
+            message.channel.send(`Who are you giving money to?`);
         } else if (!donation || donation > check || isNaN(donation) || donation < 0) {
-            message.channel.send("thats not a valid number of golden stars to give")
+            message.channel.send(`Invalid amount of money.`)
         } else if (donation === 0) {
-            message.channel.send('ok scrooge');
+            message.channel.send(`What's the point of giving if you aren't giving anything?`);
         } else if (target.id === message.author.id) {
-            message.channel.send("bruh you cant give golden stars to yourself smh")
+            message.channel.send(`You already have money.`)
         } else if (target.user.bot) {
-            message.channel.send("bruh you cant give golden stars to a bot smh")
+            message.channel.send(`The last time I checked, bots don't need money.`)
         } else {
             d.addMoni(message.author.id, -donation);
             d.addMoni(target.id, donation);
@@ -29,9 +29,9 @@ module.exports = {
                 .setColor('#dd2de0')
                 .setTitle(message.author.username + "'s donation to " + target.displayName)
                 .addField('Donation', 'you gave ' + `${target.displayName} ` + donation + ' :star:s')
-                .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+                .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
                 .setTimestamp()
-                .setFooter('Grape Charity Org.');
+                .setFooter('Bape Charity Org.');
 
             message.channel.send(give);
         }
