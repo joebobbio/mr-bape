@@ -6,7 +6,7 @@ module.exports = {
     async execute(message, args, d) {
         let argument = args.join(' ').toLowerCase();
         let inv = await d.items.get(message.author.id)
-        if (!inv || !inv.ore) { return message.channel.send('Bruh you don\'t got ores git good'); }
+        if (!inv || !inv.ore) { return message.channel.send('You have no ores to refine.'); }
         if (argument === 'all') {
             function getCost() {
                 let moni = 0;
@@ -21,7 +21,7 @@ module.exports = {
             }
             let cost = getCost();
             if (cost === true || cost === 0 && !inv["personal refinery"]) { return message.channel.send('There\'s nothing to refine!') }
-            if (cost > await d.users.get(message.author.id)) { return message.channel.send('Bruh you don\'t have the moni'); }
+            if (cost > await d.users.get(message.author.id)) { return message.channel.send(`You don't have the money to refine your ores.`); }
             for (let key in inv.ore) {
                 if (key.includes('refined')) { continue; }
                 if (!inv.ore["refined " + key]) { inv.ore["refined " + key] = inv.ore[key]; }
@@ -38,7 +38,7 @@ module.exports = {
                 .setTitle(message.author.username + '\'s refinement')
                 .addField('Refined', refinementRecipt)
                 .setTimestamp()
-                .setFooter('Grape Refinery');
+                .setFooter('Bape Refinery');
             return message.channel.send(refine);
         }
         else {
@@ -48,18 +48,18 @@ module.exports = {
                     const e = new d.Discord.MessageEmbed()
                         .setColor('#dd2de0')
                         .setTitle(message.author.username + '\'s refinement')
-                        .addField('Cannot Refine', 'That ore doesn\'t exist bruh')
+                        .addField('Cannot Refine', 'That ore doesn\'t exist.')
                         .setTimestamp()
-                        .setFooter('Grape Refinery');
+                        .setFooter('Bape Refinery');
                     return message.channel.send(e);
                 }
                 if (!inv.ore[item]) {
                     const e = new d.Discord.MessageEmbed()
                         .setColor('#dd2de0')
                         .setTitle(message.author.username + '\'s refinement')
-                        .addField('Cannot Refine', 'You don\'t have that ore, git good.')
+                        .addField('Cannot Refine', 'You don\'t have that ore.')
                         .setTimestamp()
-                        .setFooter('Grape Refinery');
+                        .setFooter('Bape Refinery');
                     return message.channel.send(e);
                 }
                 function getCostAll() {
@@ -84,7 +84,7 @@ module.exports = {
                     .setTitle(message.author.username + '\'s refinement')
                     .addField('Refined', oreRefine)
                     .setTimestamp()
-                    .setFooter('Grape Refinery');
+                    .setFooter('Bape Refinery');
                 return message.channel.send(r);
             }
             else {
@@ -97,18 +97,18 @@ module.exports = {
                     const e = new d.Discord.MessageEmbed()
                         .setColor('#dd2de0')
                         .setTitle(message.author.username + '\'s refinement')
-                        .addField('Cannot Refine', 'That ore doesn\'t exist bruh')
+                        .addField('Cannot Refine', 'That ore doesn\'t exist.')
                         .setTimestamp()
-                        .setFooter('Grape Refinery');
+                        .setFooter('Bape Refinery');
                     return message.channel.send(e);
                 }
                 if (!inv.ore[item]) {
                     const e = new d.Discord.MessageEmbed()
                         .setColor('#dd2de0')
                         .setTitle(message.author.username + '\'s refinement')
-                        .addField('Cannot Refine', 'You don\'t have that ore, git good.')
+                        .addField('Cannot Refine', 'You don\'t have that ore.')
                         .setTimestamp()
-                        .setFooter('Grape Refinery');
+                        .setFooter('Bape Refinery');
                     return message.channel.send(e);
                 }
                 function getCostSingle() {
@@ -133,7 +133,7 @@ module.exports = {
                     .setTitle(message.author.username + '\'s refinement')
                     .addField('Refined', oreRefiner)
                     .setTimestamp()
-                    .setFooter('Grape Refinery');
+                    .setFooter('Bape Refinery');
                 return message.channel.send(r);
             }
         }
