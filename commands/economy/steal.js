@@ -1,17 +1,17 @@
 module.exports = {
     name: 'steal',
     aliases: ['rob'],
-    description: "steal stars from other ppl",
+    description: "theft bad",
     cooldown: 60,
-    cd: "You're gonna look sus if you keep doing that",
+    cd: "You don't want to go to jail, right?",
     async execute(message, args, d) {
         let target = message.mentions.members.first();
-        if (!target || target.id === message.author.id || target.user.bot) { return message.channel.send('That\'s aint a valid person to ~~steal~~ forcefully borrow from!'); }
+        if (!target || target.id === message.author.id || target.user.bot) { return message.channel.send('That\'s not a valid person to steal from!'); }
         let targetBal = await d.users.get(target.id);
         let robberBal = await d.users.get(message.author.id);
         let inv = await d.items.get(message.author.id);
-        if (!targetBal || targetBal < 10) { return message.channel.send("Bruh don't bully, mans too poor to steal from"); }
-        if (robberBal < 10) { return message.channel.send('You don\'t got the moni to do that (get at least 10 :star:s)'); }
+        if (!targetBal || targetBal < 10) { return message.channel.send("You monster. Stealing from the poor."); }
+        if (robberBal < 10) { return message.channel.send('You need at least 10 money'); }
         async function robbery() {
             const successVar = Math.floor(Math.random() * 99) + 1;
             const e = "0.0" + (Math.floor(Math.random() * 6) + 1).toString();
@@ -28,7 +28,7 @@ module.exports = {
                     .setDescription(`Stealing from: ${target.displayName}`)
                     .addField('Success', `Heist Successful! You got ${earned} :star:s!`)
                     .setTimestamp()
-                    .setFooter('Shady Grape Org');
+                    .setFooter('Shady Bape Org');
                 message.channel.send(nice);
             }
             else {
@@ -38,9 +38,9 @@ module.exports = {
                     .setColor('#dd2de0')
                     .setTitle(message.author.username + `\'s heist`)
                     .setDescription(`Stealing from: ${target.displayName}`)
-                    .addField('Fail', `rip, despite ur effort, you got caught and lost ${loss} :star:s.`)
+                    .addField('Fail', `You were caught and lost ${loss} :star:s.`)
                     .setTimestamp()
-                    .setFooter('Shady Grape Org');
+                    .setFooter('Shady Bape Org');
 
                 message.channel.send(rip);
             }
@@ -52,9 +52,9 @@ module.exports = {
                 .setColor('#dd2de0')
                 .setTitle(message.author.username + '\'s heist')
                 .setDescription(`Stealing from: ${target.displayName}`)
-                .addField('Task', 'Pick a number from 1 - 3, if you pick the right number the safe will be cracked, if not then rip\nYou have 7 seconds, go!')
+                .addField('Task', 'Pick a number from 1 - 3, if you pick the right number the safe will be cracked.\nYou have 7 seconds, go!')
                 .setTimestamp()
-                .setFooter('Shady Grape Org');
+                .setFooter('Shady Bape Org');
             message.channel.send(go);
             message.channel.awaitMessages(filter, {
                 max: 1,
@@ -72,9 +72,9 @@ module.exports = {
                             .setColor('#dd2de0')
                             .setTitle(message.author.username + '\'s heist')
                             .setDescription(`Stealing from: ${target.displayName}`)
-                            .addField('Fail', `you guessed wrong rip, you lost ${loss} :star:s`)
+                            .addField('Fail', `You guessed wrong, and you lost ${loss} :star:s`)
                             .setTimestamp()
-                            .setFooter('Shady Grape Org');
+                            .setFooter('Shady Bape Org');
 
                         message.channel.send(rip);
                     }
@@ -86,9 +86,9 @@ module.exports = {
                         .setColor('#dd2de0')
                         .setTitle(message.author.username + '\'s heist')
                         .setDescription(`Stealing from: ${target.displayName}`)
-                        .addField('Fail', `Bruh ur trash, you couldn't crack it in time, also you lost ${lossTime} :star:s`)
+                        .addField('Fail', `You could not crack the safe, so you lost ${lossTime} :star:s`)
                         .setTimestamp()
-                        .setFooter('Shady Grape Org');
+                        .setFooter('Shady Bape Org');
 
                     message.channel.send(rip);
                 });
