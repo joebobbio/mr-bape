@@ -4,9 +4,9 @@ module.exports = {
     cooldown: 1,
     cd: "Chill, those messages won't incriminate you (i think)",
     execute(message, args, d) {
-        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You don\'t have perms!')
-        if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Bruh I don't have perms, give me some")
-        if (!args[0]) return message.channel.send('Bruh how many messages should I purge?');
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('Permission denied.')
+        if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send("I cannot **manage messages** in this guild!")
+        if (!args[0]) return message.channel.send('You must provide a number of messages to purge!');
         let number = parseInt(args[0]);
         let iteration = ~~(number / 100);
         let leftover = number - (iteration * 100);
