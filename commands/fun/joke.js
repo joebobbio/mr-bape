@@ -15,7 +15,7 @@ module.exports = {
                 value: '_'
             })
             .setTimestamp()
-            .setFooter('Grape Jokes');
+            .setFooter('Bape Jokes');
         message.channel.send(jk);
     }
 };
