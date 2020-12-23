@@ -13,7 +13,6 @@ module.exports = {
         else {
             let set = parseInt(argument)
 			if (isNaN(set)) return message.channel.send("Numbers only");
-            else if (set > 100) return message.channel.send("too loud!")
 			else if (set < 0) return message.channel.send("what does negative volume even sound like");
             queue.volume = set;
             queue.connection.dispatcher.setVolumeLogarithmic(set / 100);
