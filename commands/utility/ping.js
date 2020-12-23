@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'ping',
 	aliases: ['pinginfo'],
-	description: 'basic ping pong command, see the ping',
+	description: 'Pong',
 	cooldown: 2,
 	cd: "My ping is fine, thanks",
 	execute(message, args, d) {
@@ -13,9 +13,9 @@ module.exports = {
 					.addFields(
 					{ name: 'Your ping is:', value: `${ping}`}
 					)
-			                .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+			                .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
 					.setTimestamp()
-					.setFooter('Grape Databases');
+					.setFooter('Bape Databases');
 				m.delete();
 				m.channel.send(pingsoloEmbed);
 		})
