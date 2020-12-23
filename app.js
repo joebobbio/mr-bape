@@ -35,9 +35,8 @@ client.once("ready", () => {
   console.log("Ready!");
   client.user.setPresence({
     activity: {
-      name: `${config.prefix}help in ${client.guilds.cache.size} servers`,
-      type: "STREAMING",
-      url: twitchURL,
+      name: `for ${config.prefix}help in ${client.guilds.cache.size} servers`,
+      type: "LISTENING",
     },
   });
 });
@@ -50,9 +49,8 @@ client.on("voiceStateUpdate", (old, New) => {
 client.on("guildCreate", (guild) => {
   client.user.setPresence({
     activity: {
-      name: `${config.prefix}help in ${client.guilds.cache.size} servers`,
-      type: "STREAMING",
-      url: twitchURL,
+      name: `for ${config.prefix}help in ${client.guilds.cache.size} servers`,
+      type: "LISTENING"
     },
   });
 });
@@ -60,9 +58,8 @@ client.on("guildCreate", (guild) => {
 client.on("guildDelete", async (guild) => {
   client.user.setPresence({
     activity: {
-      name: `${config.prefix}help in ${client.guilds.cache.size} servers`,
-      type: "STREAMING",
-      url: "https://www.twitch.tv/MrGrapeTwitch",
+      name: `for ${config.prefix}help in ${client.guilds.cache.size} servers`,
+      type: "LISTENING"
     },
   });
   await guilds.delete(guild.id);
@@ -137,7 +134,7 @@ client.on("message", async (message) => {
         .setTitle("ayo chill man")
         .setDescription(`${command.cd}\nWait for ${d.formatCooldown(timeLeft)}`)
         .setTimestamp()
-        .setFooter("Grape Cooldowns");
+        .setFooter("Bape Cooldowns");
       return message.channel.send(cool);
     }
   }
