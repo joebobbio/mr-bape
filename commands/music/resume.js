@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'resume',
-	description: 'resume a song that\'s paused',
+	description: 'Resume a paused song',
 	cooldown: 2,
 	cd: "No need to check, you can hear it already",
 	execute(message, args, d) {
@@ -8,15 +8,9 @@ module.exports = {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
-			const p = new d.Discord.MessageEmbed()
-				.setColor('#dd2de0')
-				.setTitle('Song')
-				.addField(`Resumin Tunes!`, '_')
-				.setTimestamp()
-				.setFooter('DJ Grape');
-			return message.channel.send(p);
+			return message.channel.send(`Resuming.`);
 		}
-		else if (serverQueue.playing) return message.channel.send("Can't resume if its already playing smh")
-		else { return message.channel.send('There is nothing playin'); }
+		else if (serverQueue.playing) return message.channel.send("Something is already playing!")
+		else { return message.channel.send('The queue is empty.'); }
 	}
 };
