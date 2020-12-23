@@ -1,29 +1,22 @@
 module.exports = {
-    name: 'question',
-    description: 'what is the meaning of life',
-    aliases: ['ask'],
-    cooldown: 3,
-    cd: "Just google it yourself",
-    async execute(message, args, d) {
-        let finalAnswer;
-        if (!args[0]) { return message.channel.send('What do I look up?'); }
-        let key = process.env.WOLFRAM;
-        let wolfapi = `https://api.wolframalpha.com/v1/result?i=${encodeURIComponent(args.join(' '))}&appid=${key}`;
-        let answer = await d.r2.get(wolfapi).text;
-        if (answer === 'No short answer available') {
-            let simpleWolf = `https://api.wolframalpha.com/v2/query?input=${encodeURIComponent(args.join(' '))}&format=plaintext&output=JSON&appid=${key}&podindex=2`
-            let ans = await d.r2.get(simpleWolf).json;
-            if (!ans.queryresult.pods[0].subpods[0].plaintext || ans.queryresult.pods[0].subpods[0].plaintext === '(data not available)') { ans = "Can't find that." }
-            finalAnswer = ans.queryresult.pods[0].subpods[0].plaintext;
-        }
-        else { finalAnswer = answer }
-        const answerEmbed = new d.Discord.MessageEmbed()
-            .setColor('#dd2de0')
-            .setTitle('Answer')
-            .setDescription('Powered by Wolfram-Alpha')
-            .addField(finalAnswer.charAt(0).toUpperCase() + finalAnswer.slice(1), '_')
-            .setTimestamp()
-            .setFooter('Bape Databases');
-        message.channel.send(answerEmbed)
-    }
+	name: 'server',
+	aliases: ['serverinfo'],
+	description: 'Gets server info.',
+	cooldown: 2,
+	cd: 'server',
+	execute(message, args, d) {
+		const serversoloEmbed = new d.Discord.MessageEmbed()
+			.setColor('#dd2de0')
+			.setAuthor(message.guild.name, message.guild.iconURL())
+			.addFields(
+				{ name: 'Server ID', value: message.guild.id },
+				{ name: 'Members', value: message.guild.memberCount },
+				{ name: 'Created', value: message.guild.createdAt.toString().split(' ').slice(1, 4).join(' ') }
+			)
+			.setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
+			.setTimestamp()
+			.setFooter('Bape Databases');
+
+		message.channel.send(serversoloEmbed);
+	}
 };
