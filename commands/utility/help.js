@@ -1,13 +1,11 @@
 const fileReader = require('filehound')
 module.exports = {
     name: 'help',
-    description: 'help command bro',
     cooldown: 1,
     cd: "Don't spam help cmd",
     execute(message, args, d) {
         try {
             let alias;
-            if (message.content.toLowerCase().includes('nsfw')) { return message.channel.send('Begone thot \:cross:'); }
             const toTitleCase = (thingy) => {
                 return thingy
                     .toLowerCase()
@@ -33,7 +31,7 @@ module.exports = {
                         value: `For help on a specific command or category, do ${d.prefix}help [category/command]`
                     })
                     .setTimestamp()
-                    .setFooter('Grape Databases');
+                    .setFooter('Bape Databases');
                 message.channel.send(helpEmbed);
                 return;
             }
@@ -68,7 +66,7 @@ module.exports = {
                         value: `For more help on a specific command, do ${d.prefix}help [command]`
                     })
                     .setTimestamp()
-                    .setFooter('Grape Databases');
+                    .setFooter('Bape Databases');
                 message.channel.send(helpCommandEmbed);
             } else if (command) {
                 if (!command.aliases) {
@@ -87,13 +85,13 @@ module.exports = {
                         value: alias
                     })
                     .setTimestamp()
-                    .setFooter('Grape Databases');
+                    .setFooter('Bape Databases');
                 message.channel.send(helpCommandEmbed);
             } else {
-                message.channel.send('That category or command aint here')
+                message.channel.send('That command or category does not exist.')
             }
         } catch {
-            message.channel.send('That category or command aint here')
+            message.channel.send('That command or category does not exist.')
         }
     }
 };
