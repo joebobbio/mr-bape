@@ -1,7 +1,7 @@
 module.exports = {
     name: 'user',
     aliases: ['userinfo'],
-    description: 'return basic info about the user',
+    description: `Gets a user's info`,
     cooldown: 2,
     cd: "Stop stalking",
     async execute(message, args, d, client) {
@@ -37,9 +37,9 @@ module.exports = {
                 name: 'Joined Discord',
                 value: user.createdAt
             })
-            .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+            .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
             .setTimestamp()
-            .setFooter('Grape Databases');
+            .setFooter('Bape Databases');
 
         message.channel.send(usersoloEmbed);
     }
