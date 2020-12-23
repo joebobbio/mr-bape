@@ -1,12 +1,12 @@
 module.exports = {
     name: 'question',
-    description: 'get many questions answered using wolfram alpha',
+    description: 'what is the meaning of life',
     aliases: ['ask'],
     cooldown: 3,
-    cd: "Just google it urself, nerd",
+    cd: "Just google it yourself",
     async execute(message, args, d) {
         let finalAnswer;
-        if (!args[0]) { return message.channel.send('whaddya want me to look up?'); }
+        if (!args[0]) { return message.channel.send('What do I look up?'); }
         let key = process.env.WOLFRAM;
         let wolfapi = `https://api.wolframalpha.com/v1/result?i=${encodeURIComponent(args.join(' '))}&appid=${key}`;
         let answer = await d.r2.get(wolfapi).text;
@@ -23,7 +23,7 @@ module.exports = {
             .setDescription('Powered by Wolfram-Alpha')
             .addField(finalAnswer.charAt(0).toUpperCase() + finalAnswer.slice(1), '_')
             .setTimestamp()
-            .setFooter('DJ Grape');
+            .setFooter('Bape Databases');
         message.channel.send(answerEmbed)
     }
 };
