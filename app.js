@@ -78,6 +78,10 @@ client.on("guildCreate", (guild) => {
             {
                 name: 'Invite',
                 value: 'You can invite Mr. Bape to your own server **[here](https://discord.com/api/oauth2/authorize?client_id=789949530131922975&permissions=1312156870&scope=bot)**'
+            },
+            {
+                name: 'Found a bug?',
+                value: 'Please report it at our **[Discord server](https://discord.gg/fhYJdjRR7C)** in the #bug-report channel. If your bug is a security bug, PLEASE EMAIL ME AT phene@ctaetcsh.xyz! Do NOT share the security issue publicly!'
             }
         ],
     
