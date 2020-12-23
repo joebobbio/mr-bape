@@ -32,14 +32,14 @@ module.exports = {
                 value: `${d.config.todo.join("\n")}`
             }, {
                 name: 'Credits:',
-                value: 'Kinglalu and DAONE | Goobermeister: graphics/emojis | Originally by Horsey4 and Airplane Bong.'
+                value: 'improved by Phene | forked from DAONE | Goobermeister: graphics/emojis | Originally by Horsey4 and Airplane Bong.'
             }, {
                 name: '# of Servers Mr.Grape is in:',
                 value: `${message.client.guilds.cache.size}`
             }, )
-            .setThumbnail('https://i.imgur.com/JXfpgdXh.jpg')
+            .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
             .setTimestamp()
-            .setFooter('Grape Enterprises');
+            .setFooter('Bape Enterprises');
 
         message.channel.send(info);
 
