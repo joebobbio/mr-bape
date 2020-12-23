@@ -35,7 +35,7 @@ client.once("ready", () => {
   console.log("Ready!");
   client.user.setPresence({
     activity: {
-      name: `for ${config.prefix}help in ${client.guilds.cache.size} servers`,
+      name: `${config.prefix}help in ${client.guilds.cache.size} servers`,
       type: "LISTENING",
     },
   });
@@ -49,7 +49,7 @@ client.on("voiceStateUpdate", (old, New) => {
 client.on("guildCreate", (guild) => {
   client.user.setPresence({
     activity: {
-      name: `for ${config.prefix}help in ${client.guilds.cache.size} servers`,
+      name: `${config.prefix}help in ${client.guilds.cache.size} servers`,
       type: "LISTENING"
     },
   });
@@ -58,7 +58,7 @@ client.on("guildCreate", (guild) => {
 client.on("guildDelete", async (guild) => {
   client.user.setPresence({
     activity: {
-      name: `for ${config.prefix}help in ${client.guilds.cache.size} servers`,
+      name: `${config.prefix}help in ${client.guilds.cache.size} servers`,
       type: "LISTENING"
     },
   });
