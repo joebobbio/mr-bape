@@ -53,6 +53,39 @@ client.on("guildCreate", (guild) => {
       type: "LISTENING"
     },
   });
+  let defaultChannel = "";
+  guild.channels.cache.forEach((channel) => {
+    if(channel.type == "text" && defaultChannel == ""){
+      if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")){
+        defaultChannel = channel;
+      }
+    }
+  })
+  defaultChannel.send(`Thanks for inviting me!`, {
+    embed:{
+        title: 'Prefix',
+        color: 0x2471a3, 
+        description: "My prefix is `+`, however it can be changed with `+prefix`",
+        fields:[
+            {
+                name: 'Commands',
+                value: 'Mr. Bape offers many fun commands, which you can view with `+help`.'
+            },     
+            {
+                name: 'Support',
+                value: 'If you need help with Mr. Bape, please ask at our **[Discord server](https://discord.gg/fhYJdjRR7C**'
+            },
+            {
+                name: 'Invite',
+                value: 'You can invite Mr. Bape to your own server **[here](https://discord.com/api/oauth2/authorize?client_id=789949530131922975&permissions=1312156870&scope=bot)**'
+            }
+        ],
+    
+        footer: {
+            text: 'By using this bot, you agree to the Mr. Bape privacy policy at https://phene.cf/bot/privacy .'
+        }
+    }
+    });
 });
 
 client.on("guildDelete", async (guild) => {
