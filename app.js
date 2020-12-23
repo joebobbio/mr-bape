@@ -73,7 +73,7 @@ client.on("guildCreate", (guild) => {
             },     
             {
                 name: 'Support',
-                value: 'If you need help with Mr. Bape, please ask at our **[Discord server](https://discord.gg/fhYJdjRR7C**'
+                value: 'If you need help with Mr. Bape, please ask at our **[Discord server](https://discord.gg/fhYJdjRR7C)**'
             },
             {
                 name: 'Invite',
