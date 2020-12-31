@@ -3,28 +3,28 @@ module.exports = {
     aliases: ['rr'],
     description: '1/6 chance you lose all your money. 5/6 chance you multiply your bet by 2x.',
     cooldown: 1,
-    cd: "pew pew",
+    cd: "you have been charged with mass murder",
     async execute(message, args, d) {
         function decideFate(be) {
 	    var rand = Math.floor(Math.random() * 6) + 1;
             if (rand == 1) {
                 d.addMoni(message.author.id, -(userBal))
                  const daa = new d.Discord.MessageEmbed()
-            .setColor('#dd2de0')
+            .setColor('#e342f5')
             .setTitle(message.author.username + `'s Revolver`)
-            .addField('You died and lost all your money. Rip', '_')
+            .addField('You fucking died and lost all your money.', '_')
             .setTimestamp()
-            .setFooter('Grape Gambling Club.');
+            .setFooter('Bape Gambling Club.');
 		message.channel.send(daa)
             }
             else {
                 d.addMoni(message.author.id, Math.floor(be*1.5))
                 const daa = new d.Discord.MessageEmbed()
-            .setColor('#dd2de0')
+            .setColor('#e342f5')
             .setTitle(message.author.username + `'s Revolver`)
             .addField('yay! You didn\'t die... this time... enjoy ' + Math.floor(be*1.5).toString(), '_')
             .setTimestamp()
-            .setFooter('Grape Gambling Club.');
+            .setFooter('Bape Gambling Club.');
                 message.channel.send(daa)
             }
         }
