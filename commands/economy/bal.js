@@ -38,7 +38,7 @@ module.exports = {
       displayBal = bal;
 
     const balEmbed = new d.Discord.MessageEmbed()
-      .setColor("#dd2de0")
+      .setColor("#e342f5")
       .setTitle(personName + `'s balance`)
       .addField("Balance", displayBal + " :star:s")
       .setThumbnail("https://cdn.discordapp.com/emojis/690075870995808326.png")
