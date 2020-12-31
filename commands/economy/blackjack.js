@@ -123,7 +123,7 @@ module.exports = {
                 if (card.suit == "diamonds") cardsMsg += "♦"
                 if (card.suit == "spades") cardsMsg += "♠"
                 if (card.suit == "clubs") cardsMsg += "♣"
-                cardsMsg += "`](https://example.com) "
+                cardsMsg += "`](https://phene.cf) "
             });
             cardsMsg += " --> " + player.score.toString()
 
@@ -149,7 +149,7 @@ module.exports = {
             }
 
             const gambleEmbed = new d.Discord.MessageEmbed()
-                .setColor('#dd2de0')
+                .setColor('#e342f5')
                 .setTitle(message.author.username + `'s gambling table` + '\n___')
                 .addField('Your Cards', cardsMsg)
                 .addField('Dealer\'s Cards', dealerMsg)
