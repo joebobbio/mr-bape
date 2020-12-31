@@ -34,7 +34,7 @@ module.exports = {
                 name: 'Credits:',
                 value: 'improved by Phene | forked from DAONE | Goobermeister: graphics/emojis | Originally by Horsey4 and Airplane Bong.'
             }, {
-                name: '# of Servers Mr.Grape is in:',
+                name: '# of Servers Mr. Bape is in:',
                 value: `${message.client.guilds.cache.size}`
             }, )
             .setThumbnail('https://cdn.discordapp.com/emojis/690075870995808326.png')
